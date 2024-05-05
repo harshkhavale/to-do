@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from "../assets/calendar.png";
+import logo from "../assets/upcoming.gif";
 import { FaPlus } from "react-icons/fa";
 const Header = ({modalControl}) => {
     const date = new Date();
@@ -7,8 +7,8 @@ const Header = ({modalControl}) => {
   const formattedDate = new Intl.DateTimeFormat("en-US", options).format(date);
   return (
          <div className="header flex items-center justify-between px-4">
-        <div className=" flex items-center">
-          <img src={logo} alt="logo-img" className=" h-8 w-8" />
+        <div className=" flex items-center gap-4">
+          <img src={logo} alt="logo-img" className=" h-12 w-12" />
           <div>
             <p className=" font-bold text-2xl">Today's Task</p>
             <p className=" font-bold text-sm">{formattedDate}</p>

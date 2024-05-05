@@ -1,7 +1,9 @@
-// components/TaskList.js
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteTask, toggleTask } from '../redux/taskSlice';
+import { IoMdCheckmarkCircle } from "react-icons/io";
+import { LiaUndoAltSolid } from "react-icons/lia";
+import { MdDeleteOutline } from "react-icons/md";
 
 function TaskList() {
   const tasks = useSelector((state) => state.tasks.tasks);
@@ -23,9 +25,9 @@ function TaskList() {
             <p className={`font-bold ${task.completed ? 'line-through' : ''}`}>{task.text}</p>
             <div>
               <button className='bg-green-400 rounded-xl p-2 font-bold text-white mr-2' onClick={() => handleToggleTask(task.id)}>
-                {task.completed ? 'Undo' : 'Complete'}
+                {task.completed ? <LiaUndoAltSolid/> : <IoMdCheckmarkCircle/>}
               </button>
-              <button className='bg-red-400 rounded-xl p-2 font-bold text-white' onClick={() => handleDeleteTask(task.id)}>Delete</button>
+              <button className='bg-red-400 rounded-xl p-2 font-bold text-white' onClick={() => handleDeleteTask(task.id)}><MdDeleteOutline/></button>
             </div>
           </li>
         ))}
